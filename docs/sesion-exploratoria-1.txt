@@ -1,0 +1,19 @@
+Charter: Explora el módulo de autenticación (Log in) y el proceso de compra en DemoBlaze (desde agregar productos al carrito hasta completar la orden) con datos extremos y clics rápidos para descubrir cómo valida el sistema el flujo de pago, el login y la gestión del carrito.
+
+Inicio: 20:00  |  Fin: 20:25
+
+20:01 [O] Ingresé a la página principal de DemoBlaze (demoblaze.com) y seleccioné la categoría "Laptops".
+20:03 [O] Intenté iniciar sesión en el módulo "Log in" dejando los campos de usuario y contraseña vacíos.
+20:05 [D] Defecto 1 (Login): El formulario de Log in no valida correctamente los campos obligatorios antes de procesar la solicitud, mostrando alertas inconsistentes al intentar autenticarse sin credenciales.
+20:08 [O] Navegué al catálogo y agregué el producto "Sony vaio i5" al carrito. Apareció la alerta de éxito "Product added".
+20:12 [P] ¿Qué sucede si intento procesar una compra en el carrito presionando "Place Order" con campos vacíos o datos con formato incorrecto?
+20:15 [D] Defecto 2 (Carrito/Pago): En la sección Cart, al intentar procesar el pago ("Place Order"), el sistema presenta fallas en la validación de los campos del formulario de compra (acepta datos con formato inválido o vacíos antes de confirmar la compra).
+20:18 [I] Idea: Realizar una sesión futura enfocada únicamente en pruebas de seguridad e inyección de código en los campos de texto del formulario de pago y login.
+20:22 [O] Verifiqué la respuesta del modal tras intentar completar la transacción y registré los datos.
+
+Balance de tiempo:
+- Prueba activa: 75%
+- Reporte de notas: 15%
+- Ajustes de entorno: 10%
+
+Lo que no alcancé a probar: Concurrencia de múltiples usuarios autenticados comprando simultáneamente el mismo producto con stock limitado.

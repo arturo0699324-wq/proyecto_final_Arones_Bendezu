@@ -1,0 +1,58 @@
+# Plan de Pruebas v1 - DemoBlaze
+
+## 1. Identificación
+- **Proyecto:** DemoBlaze E-commerce (Entorno de Pruebas)
+- **Autor:** Toño Arturo Arones Bendezú
+- **Versión y fecha:** v1 · 16 de octubre de 2026
+- **Archivo:** `docs/plan-de-pruebas-v1.md`
+
+## 2. Objetivo y alcance
+- **Objetivo:** Comprobar que el catálogo de productos, el inicio de sesión, el carrito de compras y el flujo de pago simulan correctamente las transacciones con datos válidos, y que las validaciones de los formularios comunican con claridad los datos incorrectos.
+- **Alcance:**
+  - **Dentro del alcance:**
+    1. Autenticación de usuario (Módulo Log in / Sign up).
+    2. Gestión del carrito de compras (agregar, visualizar y eliminar productos).
+    3. Flujo completo de compra (modal "Place Order" y pasarela simulada).
+    * *Motivo:* Son las funcionalidades principales que aportan valor de negocio al usuario final.
+  - **Fuera del alcance:**
+    1. Rendimiento bajo carga y pruebas de estrés.
+    2. Pasarelas de pago reales con tarjetas bancarias reales o dinero fiat.
+    * *Motivo:* Quedan excluidos por limitaciones técnicas del entorno de práctica educativo.
+
+## 3. Enfoque
+- **Pruebas manuales:** Diseño y ejecución de flujos principales de usuario (login, carrito y compra).
+- **Testing exploratorio:** Sesiones basadas en charters con toma de notas estructurada mediante etiquetas (D, P, I, O).
+- **Herramientas:** Navegador Google Chrome con Developer Tools, Jira (plan Free) para la gestión de defectos, y Git/GitHub para versionado de código.
+
+## 4. Criterios de entrada y de salida
+- **Criterios de entrada:**
+  - El sitio web https://demoblaze.com/ está disponible y operativo.
+  - El tablero de Jira y el repositorio de trabajo se encuentran creados.
+- **Criterios de salida:**
+  - Se ejecutaron los flujos de prueba de prioridad alta.
+  - No quedan defectos críticos abiertos sin verificar en Jira.
+  - Se realizó la sesión exploratoria planificada y sus notas quedaron documentadas.
+
+## 5. Entorno y datos de prueba
+- **Entorno:** Aplicación web pública https://demoblaze.com/
+- **Navegador:** Google Chrome de escritorio (última versión).
+- **Datos de prueba:** Credenciales de usuario simuladas y productos del catálogo (ej. Sony vaio i5).
+
+## 6. Roles y cronograma
+- **Actividad:** Sesión exploratoria 1, registro de defectos en Jira y redacción del Plan de Pruebas v1.
+- **Responsable:** Toño Arturo Arones Bendezú.
+- **Fecha:** 16 de octubre de 2026.
+- **Cronograma restante:** Por completar.
+
+## 7. Riesgos y mitigación
+- **Riesgo:** Inestabilidad o cambios sin previo aviso en el servidor público de DemoBlaze.
+  - *Mitigación:* Repetir la verificación antes de reportar y anotar fecha y entorno exacto de cada observación.
+- **Riesgo:** Poco tiempo para probar todas las combinaciones de datos en los formularios.
+  - *Mitigación:* Priorizar los flujos críticos (Login y Pago) dejando las secciones secundarias fuera del alcance con su motivo.
+- **Riesgo:** Defectos de validación intermitentes o difíciles de reproducir.
+  - *Mitigación:* Registrar los pasos exactos, valores de entrada concretos y captura de pantalla en las notas de prueba.
+
+## 8. Entregables
+- Bitácora de la sesión exploratoria con notas etiquetadas (`docs/sesion-exploratoria-1`).
+- Registro de defectos reportados y vinculados en Jira.
+- Documento formal del Plan de Pruebas v1 (`docs/plan-de-pruebas-v1.md`).
