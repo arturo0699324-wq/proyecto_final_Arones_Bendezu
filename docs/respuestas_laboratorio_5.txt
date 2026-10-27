@@ -1,0 +1,51 @@
+===================================================================
+PARTE 5: EVIDENCIA Y CINCO PREGUNTAS (LABORATORIO PLAYWRIGHT)
+===================================================================
+
+1. BÚSQUEDA. ¿Qué localizador elegiste para el campo de búsqueda y por qué ese y no otro?
+-------------------------------------------------------------------
+- Localizador elegido: 
+  page.getByRole('textbox', { name: /search|buscar/i }) (o un selector equivalente basado en accesibilidad como getByPlaceholder).
+
+- Justificación: 
+  Se eligió getByRole porque es la recomendación oficial de Playwright y sigue las mejores prácticas de accesibilidad (A11y). Simula la forma en que un usuario real o un lector de pantalla interactúa con el formulario, haciendo que la prueba sea resiliente a cambios de infraestructura (como clases CSS o IDs que cambian constantemente en el frontend).
+
+
+2. MODO ESTRICTO. ¿Qué error sale con getByTestId('product-name').click() y qué significa?
+-------------------------------------------------------------------
+- Error que sale:
+  Strict Mode Violation (Violación de Modo Estricto), con un mensaje similar a:
+  "Error: strict mode violation: getByTestId('product-name') resolved to 2 elements"
+
+- Qué significa:
+  Significa que el selector no es único en el DOM y Playwright encontró dos o más elementos que coinciden con el atributo data-testid='product-name'. El modo estricto previene que el test haga clic en el elemento equivocado de forma ambigua, exigiendo acotar el localizador (por ejemplo, usando filtros o agregando índices como .first()).
+
+
+3. ESPERAS. ¿Qué diferencia hay entre una espera implícita, una explícita y una fija? Un ejemplo de cada una.
+-------------------------------------------------------------------
+- Espera Implícita: 
+  Es una regla global donde el motor de pruebas espera un tiempo determinado para encontrar cualquier elemento antes de lanzar un error. (Playwright reemplaza este concepto con el Auto-waiting nativo).
+  * Ejemplo conceptual: Configurar un timeout global de 5000 ms en el archivo de configuración.
+
+- Espera Explícita: 
+  Instrucción específica en la que se le indica al test que espere hasta que se cumpla una condición determinada antes de continuar.
+  * Ejemplo en Playwright: 
+    await expect(page.getByRole('link', { name: 'Monitors' })).toBeVisible({ timeout: 10000 });
+
+- Espera Fija (Hardcoded / Sleep): 
+  Detiene incondicionalmente el hilo de ejecución por un tiempo exacto en milisegundos, sin importar el estado de la aplicación.
+  * Ejemplo en Playwright: 
+    await page.waitForTimeout(5000); // Pausa fija de 5 segundos (no recomendada).
+
+
+4. LA IA. ¿Qué propuso que no aceptaste y por qué?
+-------------------------------------------------------------------
+- Respuesta:
+  La IA propuso utilizar esperas fijas (waitForTimeout) y selectores XPath complejos para manejar la carga de componentes dinámicos. No se aceptó la propuesta porque rompe con las mejores prácticas de Playwright; en su lugar, se mantuvieron los localizadores por rol (getByRole) combinados con la aserción implícita de visibilidad de expect().toBeVisible(), manteniendo las pruebas rápidas y estables.
+
+
+5. COMPROBACIÓN. ¿Cómo verificaste que tu test falla cuando debe fallar?
+-------------------------------------------------------------------
+- Respuesta:
+  Se verificó alterando intencionalmente las condiciones del test (Negative Testing): se cambió el nombre del localizador por uno inexistente en la interfaz (por ejemplo, buscando un botón inexistente) y se ajustó una aserción para esperar un texto incorrecto. Al ejecutar `npx playwright test`, la terminal reportó la prueba en estado fallido (color rojo), confirmando que la prueba detecta errores reales y no genera falsos positivos.
+===================================================================
