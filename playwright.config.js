@@ -1,6 +1,10 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
 
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -26,6 +30,8 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    baseURL: 'https://demoblaze.com',
+
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
 

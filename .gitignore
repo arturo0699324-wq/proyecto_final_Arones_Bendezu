@@ -8,3 +8,5 @@ node_modules/
 /playwright/.auth/
 # Archivos de traza
 trace.zip
+# Variables de entorno
+.env

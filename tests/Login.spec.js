@@ -1,22 +1,21 @@
 import { test, expect } from '@playwright/test';
+import { LoginPage } from '../pages/LoginPage';
 
 test('usar traza', async ({ page }) => {
 
-  await page.goto('https://demoblaze.com/index.html');
+  await page.goto('/');
 
-  const login = page.locator('#login2');
-  await login.click();
+  const loginPage = new LoginPage(page);
 
-  const locatorTextbox = page.getByRole('textbox');
-  await expect(locatorTextbox).toHaveCount(2);
+  await loginPage.login(
+  process.env.LOGIN_USER,
+  process.env.LOGIN_PASSWORD
+);
 
-  const locatorUsername = page.locator('#loginusername');
-  await locatorUsername.fill('arturo123456');
+await page.waitForTimeout(5000);
 
-  const locatorPassword = page.locator('#loginpassword');
-  await locatorPassword.fill('topas123');
-
-  const button = page.locator('button[onclick="logIn()"]');
-  await button.click();
+  await expect(
+    page.locator('#nameofuser')
+  ).toBeVisible();
 
 });
