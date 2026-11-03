@@ -31,16 +31,18 @@ await locatorPassword.fill('topas123');
 await page.waitForTimeout(1000);
 
 await expect(locatorPassword).toHaveValue('topas123');
+// Botón Login
+const locatorLogin = page.locator('button[onclick="logIn()"]');
+await expect(locatorLogin).toBeEnabled();
 
-  // Botón Login
-  const locatorLogin = page.locator('button[onclick="logIn()"]');
-  await expect(locatorLogin).toBeEnabled();
+// Click Login
+await locatorLogin.click();
 
-  // Click Login
-  await locatorLogin.click();
+// Espera a que desaparezca el modal
+await expect(locatorModal).toBeHidden();
 
-  // Valida que el usuario inició sesión
-  const locatorUser = page.locator('#nameofuser');
-  await expect(locatorUser).toBeVisible();
+// Valida que el usuario inició sesión
+const locatorUser = page.locator('#nameofuser');
+await expect(locatorUser).toContainText('Welcome');
 
 });
