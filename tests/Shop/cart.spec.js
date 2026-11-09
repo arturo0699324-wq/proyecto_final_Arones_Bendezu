@@ -1,28 +1,26 @@
 import { test, expect } from '../fixtures';
+import dataCart from '../../Test-Data/data-cart.json';
 
-test('agregar producto al carrito', async ({
-    homePage,
-    productPage,
-    cartPage,
-    page
-}) => {
+for (const product of dataCart) {
 
-    const productName = 'Samsung galaxy s6';
+    test(product.name, async ({
+        homePage,
+        productPage,
+        cartPage,
+        page
+    }) => {
 
-    await homePage.goto();
+        await homePage.goto();
+        await homePage.openProduct(
+            product.productName
+        );
+        await productPage.addToCart();
+        await page.waitForTimeout(3000);
+        await productPage.openCart();
+        await page.waitForTimeout(3000);
+        await expect(
+            cartPage.rowFor(product.productName)
+        ).toBeVisible();
+    });
 
-    await homePage.openProduct(productName);
-
-    await productPage.addToCart();
-
-    await page.waitForTimeout(3000);
-
-    await productPage.openCart();
-
-    await page.waitForTimeout(3000);
-
-    await expect(
-        cartPage.rowFor(productName)
-    ).toBeVisible();
-
-})
+}

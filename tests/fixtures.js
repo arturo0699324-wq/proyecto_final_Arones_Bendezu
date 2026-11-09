@@ -4,6 +4,7 @@ import { LoginPage } from '../pages/LoginPage';
 import { HomePage } from '../pages/HomePage';
 import { ProductPage } from '../pages/ProductPage';
 import { CartPage } from '../pages/CartPage';
+import { PlaceOrderPage } from '../pages/PlaceOrderPage';
 
 export const test = base.extend({
 
@@ -21,6 +22,9 @@ export const test = base.extend({
 
     cartPage: async ({ page }, use) => {
         await use(new CartPage(page));
+    },
+    placeOrderPage: async ({ page }, use) => {
+    await use(new PlaceOrderPage(page));
     },
 
     credentials: async ({}, use) => {

@@ -1,0 +1,12 @@
+[
+  {
+    "id": "CP-CHECKOUT-01",
+    "name": "Compra completa",
+    "nombre": "Arturo",
+    "pais": "Peru",
+    "ciudad": "Pisco",
+    "tarjeta": "123456789",
+    "mes": "11",
+    "anio": "2026"
+  }
+]

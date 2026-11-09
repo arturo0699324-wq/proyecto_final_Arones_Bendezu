@@ -1,0 +1,20 @@
+[
+  {
+    "id": "CP-SHOP-01",
+    "name": "Agregar Samsung Galaxy S6 al carrito",
+    "productName": "Samsung galaxy s6",
+    "quantity": 1
+  },
+  {
+    "id": "CP-SHOP-02",
+    "name": "Agregar Nokia Lumia 1520 al carrito",
+    "productName": "Nokia lumia 1520",
+    "quantity": 1
+  },
+  {
+    "id": "CP-SHOP-03",
+    "name": "Agregar Sony Xperia Z5 al carrito",
+    "productName": "Sony xperia z5",
+    "quantity": 1
+  }
+]

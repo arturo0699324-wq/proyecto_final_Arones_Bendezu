@@ -1,0 +1,16 @@
+[
+  {
+    "id": "CP-AUTH-02",
+    "name": "usuario invalido",
+    "username": "usuarioIncorrecto",
+    "password": "topas123",
+    "error": "Wrong username."
+  },
+  {
+    "id": "CP-AUTH-03",
+    "name": "contrasena invalida",
+    "username": "arturo123456",
+    "password": "claveIncorrecta",
+    "error": "Wrong password."
+  }
+]
