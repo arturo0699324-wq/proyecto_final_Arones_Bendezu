@@ -1,12 +1,19 @@
-
-# Playwright
+# Dependencias
 node_modules/
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
-/playwright/.auth/
-# Archivos de traza
+
+# Reportes Playwright
+playwright-report/
+test-results/
+
+# Resultados
+results.json
+results.xml
+
+# Trace y videos
 trace.zip
+
+# Cache Playwright
+/playwright/.cache/
+
 # Variables de entorno
 .env
