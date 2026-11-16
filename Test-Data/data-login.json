@@ -1,11 +1,11 @@
 [
-  {
-    "id": "CP-AUTH-02",
-    "name": "usuario invalido",
-    "username": "usuarioIncorrecto",
-    "password": "topas123",
-    "error": "Wrong username."
-  },
+{
+  "id": "CP-AUTH-02",
+  "name": "usuario invalido",
+  "username": "usuarioIncorrecto",
+  "password": "topas123",
+  "error": "User does not exist."
+},
   {
     "id": "CP-AUTH-03",
     "name": "contrasena invalida",

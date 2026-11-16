@@ -13,7 +13,6 @@ test('uso de assertions', async ({ page }) => {
   // Valida que el modal esté visible
   const locatorModal = page.locator('#logInModal');
   await expect(locatorModal).toBeVisible();
-  await page.waitForTimeout(2000);
 
   // Cuenta los textbox
   const locatorTextbox = page.getByRole('textbox');
@@ -26,23 +25,22 @@ test('uso de assertions', async ({ page }) => {
 
   // Password
   const locatorPassword = page.locator('#loginpassword');
-await expect(locatorPassword).toBeVisible();
-await locatorPassword.fill('topas123');
-await page.waitForTimeout(1000);
+  await expect(locatorPassword).toBeVisible();
+  await locatorPassword.fill('topas123');
+  await expect(locatorPassword).toHaveValue('topas123');
 
-await expect(locatorPassword).toHaveValue('topas123');
-// Botón Login
-const locatorLogin = page.locator('button[onclick="logIn()"]');
-await expect(locatorLogin).toBeEnabled();
+  // Botón Login
+  const locatorLogin = page.locator('button[onclick="logIn()"]');
+  await expect(locatorLogin).toBeEnabled();
 
-// Click Login
-await locatorLogin.click();
+  // Click Login
+  await locatorLogin.click();
 
-// Espera a que desaparezca el modal
-await expect(locatorModal).toBeHidden();
+  // Espera a que desaparezca el modal
+  await expect(locatorModal).toBeHidden();
 
-// Valida que el usuario inició sesión
-const locatorUser = page.locator('#nameofuser');
-await expect(locatorUser).toContainText('Welcome');
+  // Valida que el usuario inició sesión
+  const locatorUser = page.locator('#nameofuser');
+  await expect(locatorUser).toContainText('Welcome');
 
 });

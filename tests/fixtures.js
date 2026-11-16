@@ -5,26 +5,31 @@ import { HomePage } from '../pages/HomePage';
 import { ProductPage } from '../pages/ProductPage';
 import { CartPage } from '../pages/CartPage';
 import { PlaceOrderPage } from '../pages/PlaceOrderPage';
+import { BillingPage } from '../pages/BillingPage';
+import { PaymentPage } from '../pages/PaymentPage';
 
 export const test = base.extend({
 
     loginPage: async ({ page }, use) => {
         await use(new LoginPage(page));
     },
-
     homePage: async ({ page }, use) => {
         await use(new HomePage(page));
     },
-
     productPage: async ({ page }, use) => {
         await use(new ProductPage(page));
     },
-
     cartPage: async ({ page }, use) => {
         await use(new CartPage(page));
     },
     placeOrderPage: async ({ page }, use) => {
     await use(new PlaceOrderPage(page));
+    },
+    billingPage: async ({ page }, use) => {
+    await use(new BillingPage(page));
+},
+    paymentPage: async ({ page }, use) => {
+    await use(new PaymentPage(page));
     },
 
     credentials: async ({}, use) => {
